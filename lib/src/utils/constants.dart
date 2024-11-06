@@ -1,5 +1,53 @@
 import 'package:furnishify/src/models/furniture_item.dart';
 
+final List<FurnitureItem> mostLoved = [
+  FurnitureItem(
+    name: 'Modern Sofa',
+    images: [
+      'https://luxuryfurniturecompany.com/wp-content/uploads/2022/04/WLRSF2.jpg',
+      'https://example.com/sofa2.jpg',
+      'https://example.com/sofa3.jpg',
+      'https://example.com/sofa4.jpg',
+      'https://example.com/sofa5.jpg',
+    ],
+    price: 399.99,
+    rating: 4.6,
+    reviews: 140,
+    description: 'Comfortable and stylish sofa for your living room.',
+    suggestions: [],
+  ),
+  FurnitureItem(
+    name: 'Modern bean bag',
+    images: [
+      'https://target.scene7.com/is/image/Target/GUEST_e21ec384-15b9-45cd-8221-6b86d93db194?wid=488&hei=488&fmt=pjpeg',
+      'https://example.com/chair2.jpg',
+      'https://example.com/chair3.jpg',
+      'https://example.com/chair4.jpg',
+      'https://example.com/chair5.jpg',
+    ],
+    price: 149.99,
+    rating: 4.3,
+    reviews: 85,
+    description: 'Ergonomic and modern chair design for maximum comfort.',
+    suggestions: [],
+  ),
+  FurnitureItem(
+    name: 'Modern chair',
+    images: [
+      'https://imagescdn.simons.ca/images/13839-412021-5-A1_2/matte-black-base-modern-chair.jpg?__=4',
+      'https://example.com/chair2.jpg',
+      'https://example.com/chair3.jpg',
+      'https://example.com/chair4.jpg',
+      'https://example.com/chair5.jpg',
+    ],
+    price: 149.99,
+    rating: 4.3,
+    reviews: 85,
+    description: 'Ergonomic and modern chair design for maximum comfort.',
+    suggestions: [],
+  ),
+];
+
 /// Furniture data for the app.
 final Map<String, List<FurnitureItem>> furnitureData = {
   'Sofas 🛋️': [
