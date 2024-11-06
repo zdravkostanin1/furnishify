@@ -54,7 +54,7 @@ final Map<String, List<FurnitureItem>> furnitureData = {
     FurnitureItem(
       name: 'Modern Sofa',
       images: [
-        'https://example.com/sofa1.jpg',
+        'https://i.pinimg.com/736x/3d/07/9e/3d079e78a775da8332ebd99fe41d3826.jpg',
         'https://example.com/sofa2.jpg',
         'https://example.com/sofa3.jpg',
         'https://example.com/sofa4.jpg',
