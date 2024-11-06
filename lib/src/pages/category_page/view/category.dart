@@ -15,7 +15,7 @@ class CategoryPage extends StatefulWidget {
   });
 
   @override
-  _CategoryPageState createState() => _CategoryPageState();
+  State<StatefulWidget> createState() => _CategoryPageState();
 }
 
 class _CategoryPageState extends State<CategoryPage> {
@@ -48,13 +48,13 @@ class _CategoryPageState extends State<CategoryPage> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const Text(
-                    'Filter Options',
+                    'Filter options',
                     style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                   ),
                   const SizedBox(height: 20),
                   // Price Range Filter
                   const Text(
-                    'Price Range',
+                    'Price range',
                     style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                   ),
                   SfRangeSlider(
@@ -75,7 +75,7 @@ class _CategoryPageState extends State<CategoryPage> {
                   const SizedBox(height: 20),
                   // Rating Filter
                   const Text(
-                    'Minimum Rating',
+                    'Minimum rating',
                     style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                   ),
                   RatingBar.builder(

@@ -8,17 +8,6 @@ class FurnitureCatalog extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton: SizedBox(
-        width: 60,
-        height: 60,
-        child: FloatingActionButton(
-          onPressed: () {
-            // Navigate to cart page
-          },
-          backgroundColor: Colors.black,
-          child: const Icon(Icons.shopping_cart, color: Colors.white, size: 25,),
-        ),
-      ),
       backgroundColor: Colors.grey[100],
       appBar: AppBar(
         title: Padding(
