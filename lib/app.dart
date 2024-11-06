@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_lucide/flutter_lucide.dart';
+import 'package:furnishify/src/pages/cart_page/view/cart.dart';
 import 'package:furnishify/src/pages/furniture_catalog/view/furniture_catalog.dart';
 
 class App extends StatefulWidget {
@@ -13,6 +14,7 @@ class _AppState extends State<App> {
   int _currentIndex = 0;
   final List<Widget> _screens = [
     const FurnitureCatalog(),
+    CartPage(),
   ];
 
   @override
