@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_lucide/flutter_lucide.dart';
-import 'package:furnishify/src/pages/cart_page/view/cart.dart';
-import 'package:furnishify/src/pages/furniture_catalog/view/furniture_catalog.dart';
+import 'package:furnishify/src/utils/constants.dart';
 
 class App extends StatefulWidget {
   const App({super.key});
@@ -12,10 +11,6 @@ class App extends StatefulWidget {
 
 class _AppState extends State<App> {
   int _currentIndex = 0;
-  final List<Widget> _screens = [
-    const FurnitureCatalog(),
-    CartPage(),
-  ];
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +18,7 @@ class _AppState extends State<App> {
       debugShowCheckedModeBanner: false,
       title: 'FURNISHIFY',
       home: Scaffold(
-        body: _screens[_currentIndex],
+        body: appPages[_currentIndex],
         bottomNavigationBar: BottomNavigationBar(
           currentIndex: _currentIndex,
           onTap: (index) {
@@ -44,7 +39,7 @@ class _AppState extends State<App> {
             ),
             BottomNavigationBarItem(
               activeIcon: Icon(LucideIcons.settings, color: Colors.red, size: 30, ),
-              icon: Icon(Icons.settings, color: Colors.black, size: 30,),
+              icon: Icon(LucideIcons.settings, color: Colors.black, size: 30,),
               label: 'Settings',
             ),
           ],

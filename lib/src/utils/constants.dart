@@ -1,4 +1,12 @@
+import 'package:flutter/material.dart';
 import 'package:furnishify/src/models/furniture_item.dart';
+import 'package:furnishify/src/pages/cart_page/view/cart.dart';
+import 'package:furnishify/src/pages/furniture_catalog/view/furniture_catalog.dart';
+
+final List<Widget> appPages = [
+  const FurnitureCatalog(),
+  CartPage(),
+];
 
 final List<FurnitureItem> mostLoved = [
   FurnitureItem(
