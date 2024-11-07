@@ -6,6 +6,7 @@ class FurnitureItem {
   final int reviews;
   final String description;
   final List<FurnitureItem> suggestions;
+  final int quantity;
 
   FurnitureItem({
     required this.name,
@@ -15,5 +16,6 @@ class FurnitureItem {
     required this.reviews,
     required this.description,
     required this.suggestions,
+    required this.quantity,
   });
 }

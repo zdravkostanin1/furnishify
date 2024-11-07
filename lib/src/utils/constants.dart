@@ -5,7 +5,26 @@ import 'package:furnishify/src/pages/furniture_catalog/view/furniture_catalog.da
 
 final List<Widget> appPages = [
   const FurnitureCatalog(),
-  CartPage(),
+  const CartPage(),
+];
+
+final List<FurnitureItem> cartItems = [
+  FurnitureItem(
+    name: 'Modern Sofa',
+    images: [
+      'https://i.pinimg.com/736x/3d/07/9e/3d079e78a775da8332ebd99fe41d3826.jpg',
+      'https://example.com/sofa2.jpg',
+      'https://example.com/sofa3.jpg',
+      'https://example.com/sofa4.jpg',
+      'https://example.com/sofa5.jpg',
+    ],
+    price: 399.99,
+    rating: 4.6,
+    reviews: 140,
+    description: 'Comfortable and stylish sofa for your living room.',
+    suggestions: [],
+    quantity: 1,
+  ),
 ];
 
 final List<FurnitureItem> mostLoved = [
@@ -23,6 +42,7 @@ final List<FurnitureItem> mostLoved = [
     reviews: 140,
     description: 'Comfortable and stylish sofa for your living room.',
     suggestions: [],
+    quantity: 1,
   ),
   FurnitureItem(
     name: 'Modern bean bag',
@@ -38,6 +58,7 @@ final List<FurnitureItem> mostLoved = [
     reviews: 85,
     description: 'Ergonomic and modern chair design for maximum comfort.',
     suggestions: [],
+    quantity: 1,
   ),
   FurnitureItem(
     name: 'Modern chair',
@@ -53,6 +74,7 @@ final List<FurnitureItem> mostLoved = [
     reviews: 85,
     description: 'Ergonomic and modern chair design for maximum comfort.',
     suggestions: [],
+    quantity: 1,
   ),
 ];
 
@@ -73,6 +95,7 @@ final Map<String, List<FurnitureItem>> furnitureData = {
       reviews: 140,
       description: 'Comfortable and stylish sofa for your living room.',
       suggestions: [],
+      quantity: 1,
     ),
     FurnitureItem(
       name: 'Classic Sofa',
@@ -85,6 +108,7 @@ final Map<String, List<FurnitureItem>> furnitureData = {
       reviews: 90,
       description: 'Elegant sofa with classic design and premium comfort.',
       suggestions: [],
+      quantity: 1,
     ),
     FurnitureItem(
       name: 'Compact Sofa',
@@ -97,6 +121,7 @@ final Map<String, List<FurnitureItem>> furnitureData = {
       reviews: 60,
       description: 'Compact sofa perfect for smaller spaces.',
       suggestions: [],
+      quantity: 1,
     ),
   ],
   'Chairs 🪑': [
@@ -114,6 +139,7 @@ final Map<String, List<FurnitureItem>> furnitureData = {
       reviews: 85,
       description: 'Ergonomic and modern chair design for maximum comfort.',
       suggestions: [],
+      quantity: 1,
     ),
     FurnitureItem(
       name: 'Lounge Chair',
@@ -126,6 +152,7 @@ final Map<String, List<FurnitureItem>> furnitureData = {
       reviews: 75,
       description: 'Relaxing lounge chair with soft cushioning.',
       suggestions: [],
+      quantity: 1,
     ),
     FurnitureItem(
       name: 'Accent Chair',
@@ -138,6 +165,7 @@ final Map<String, List<FurnitureItem>> furnitureData = {
       reviews: 55,
       description: 'Stylish accent chair to complement your decor.',
       suggestions: [],
+      quantity: 1,
     ),
   ],
   'Tables 🍽️': [
@@ -155,6 +183,7 @@ final Map<String, List<FurnitureItem>> furnitureData = {
       reviews: 98,
       description: 'Elegant dining table perfect for meals and gatherings.',
       suggestions: [],
+      quantity: 1,
     ),
     FurnitureItem(
       name: 'Coffee Table',
@@ -167,6 +196,7 @@ final Map<String, List<FurnitureItem>> furnitureData = {
       reviews: 65,
       description: 'Stylish coffee table to complete your living room setup.',
       suggestions: [],
+      quantity: 1,
     ),
     FurnitureItem(
       name: 'Side Table',
@@ -179,6 +209,7 @@ final Map<String, List<FurnitureItem>> furnitureData = {
       reviews: 45,
       description: 'Compact side table for your essentials.',
       suggestions: [],
+      quantity: 1,
     ),
   ],
   'Beds 🛏️': [
@@ -207,6 +238,7 @@ final Map<String, List<FurnitureItem>> furnitureData = {
           reviews: 110,
           description: 'Queen-size bed with soft mattress and modern look.',
           suggestions: [],
+          quantity: 1,
         ),
         FurnitureItem(
           name: 'Twin Bed',
@@ -219,8 +251,10 @@ final Map<String, List<FurnitureItem>> furnitureData = {
           reviews: 80,
           description: 'Cozy twin bed for smaller spaces.',
           suggestions: [],
+          quantity: 1,
         ),
       ],
+      quantity: 1,
     ),
     FurnitureItem(
       name: 'Queen Bed',
@@ -233,6 +267,7 @@ final Map<String, List<FurnitureItem>> furnitureData = {
       reviews: 110,
       description: 'Queen-size bed with soft mattress and modern look.',
       suggestions: [],
+      quantity: 1,
     ),
     FurnitureItem(
       name: 'Twin Bed',
@@ -245,6 +280,7 @@ final Map<String, List<FurnitureItem>> furnitureData = {
       reviews: 80,
       description: 'Cozy twin bed for smaller spaces.',
       suggestions: [],
+      quantity: 1,
     ),
   ],
 };

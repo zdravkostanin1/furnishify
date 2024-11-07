@@ -1,23 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:furnishify/src/utils/constants.dart';
 
 class CartPage extends StatelessWidget {
-  final List<CartItem> cartItems = [
-    CartItem(
-      name: 'Modern Sofa',
-      price: 250.0,
-      imageUrl: 'https://via.placeholder.com/150',
-      quantity: 1,
-    ),
-    CartItem(
-      name: 'Wooden Chair',
-      price: 75.0,
-      imageUrl: 'https://via.placeholder.com/150',
-      quantity: 2,
-    ),
-    // Add more items if needed
-  ];
-
-  CartPage({super.key});
+  const CartPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +12,10 @@ class CartPage extends StatelessWidget {
         title: const Text(
           'CART',
           style: TextStyle(
-              color: Colors.black87, fontWeight: FontWeight.bold, fontSize: 30),
+            color: Colors.black87,
+            fontWeight: FontWeight.bold,
+            fontSize: 30,
+          ),
         ),
         backgroundColor: Colors.white,
         elevation: 1,
@@ -75,7 +63,7 @@ class CartPage extends StatelessWidget {
                                     bottomLeft: Radius.circular(15),
                                   ),
                                   child: Image.network(
-                                    item.imageUrl,
+                                    item.images.first,
                                     height: 100,
                                     width: 100,
                                     fit: BoxFit.cover,
@@ -84,7 +72,8 @@ class CartPage extends StatelessWidget {
                                 Expanded(
                                   child: Padding(
                                     padding: const EdgeInsets.symmetric(
-                                        horizontal: 16.0),
+                                      horizontal: 16.0,
+                                    ),
                                     child: Column(
                                       crossAxisAlignment:
                                           CrossAxisAlignment.start,
@@ -112,8 +101,9 @@ class CartPage extends StatelessWidget {
                                             Row(
                                               children: [
                                                 IconButton(
-                                                  icon: const Icon(Icons
-                                                      .remove_circle_outline),
+                                                  icon: const Icon(
+                                                    Icons.remove_circle_outline,
+                                                  ),
                                                   onPressed: () {
                                                     // Decrease quantity logic
                                                   },
@@ -121,11 +111,13 @@ class CartPage extends StatelessWidget {
                                                 Text(
                                                   item.quantity.toString(),
                                                   style: const TextStyle(
-                                                      fontSize: 16),
+                                                    fontSize: 16,
+                                                  ),
                                                 ),
                                                 IconButton(
                                                   icon: const Icon(
-                                                      Icons.add_circle_outline),
+                                                    Icons.add_circle_outline,
+                                                  ),
                                                   onPressed: () {
                                                     // Increase quantity logic
                                                   },
@@ -134,8 +126,9 @@ class CartPage extends StatelessWidget {
                                             ),
                                             IconButton(
                                               icon: const Icon(
-                                                  Icons.delete_outline,
-                                                  color: Colors.red),
+                                                Icons.delete_outline,
+                                                color: Colors.red,
+                                              ),
                                               onPressed: () {
                                                 // Remove item from cart logic
                                               },
@@ -162,14 +155,17 @@ class CartPage extends StatelessWidget {
                         const Text(
                           'Total',
                           style: TextStyle(
-                              fontSize: 20, fontWeight: FontWeight.bold),
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
                         Text(
                           '\$${calculateTotal()}',
                           style: const TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.green),
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.green,
+                          ),
                         ),
                       ],
                     ),
@@ -188,7 +184,9 @@ class CartPage extends StatelessWidget {
                     child: const Text(
                       'PROCEED TO CHECKOUT',
                       style: TextStyle(
-                          color: Colors.white, fontWeight: FontWeight.bold),
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ),
                 ],
@@ -199,7 +197,9 @@ class CartPage extends StatelessWidget {
 
   double calculateTotal() {
     return cartItems.fold(
-        0, (total, item) => total + (item.price * item.quantity));
+      0,
+      (total, item) => total + (item.price * item.quantity),
+    );
   }
 }
 
