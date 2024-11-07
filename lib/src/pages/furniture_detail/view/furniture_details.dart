@@ -165,7 +165,14 @@ class _FurnitureDetailPageState extends State<FurnitureDetailPage> {
                     children: [
                       Expanded(
                         child: ElevatedButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(
+                                content: Text('Added to cart: ${widget.furnitureItem.name} x $quantity'),
+                                duration: const Duration(seconds: 2),
+                              ),
+                            );
+                          },
                           style: ElevatedButton.styleFrom(
                             backgroundColor: Colors.grey[50],
                             shape: RoundedRectangleBorder(

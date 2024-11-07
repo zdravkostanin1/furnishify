@@ -18,7 +18,18 @@ class _AppState extends State<App> {
       debugShowCheckedModeBanner: false,
       title: 'FURNISHIFY',
       home: Scaffold(
-        body: appPages[_currentIndex],
+        body: IndexedStack(
+          index: _currentIndex,
+          children: appPages.map((page) {
+            return Navigator(
+              onGenerateRoute: (routeSettings) {
+                return MaterialPageRoute(
+                  builder: (context) => page,
+                );
+              },
+            );
+          }).toList(),
+        ),
         bottomNavigationBar: BottomNavigationBar(
           currentIndex: _currentIndex,
           onTap: (index) {
@@ -28,23 +39,23 @@ class _AppState extends State<App> {
           },
           items: const [
             BottomNavigationBarItem(
-              activeIcon: Icon(LucideIcons.armchair, color: Colors.red, size: 30,),
-              icon: Icon(LucideIcons.armchair, color: Colors.black, size: 30,),
+              activeIcon: Icon(LucideIcons.armchair, color: Colors.red, size: 30),
+              icon: Icon(LucideIcons.armchair, color: Colors.black, size: 30),
               label: 'CATALOG',
             ),
             BottomNavigationBarItem(
               activeIcon: Icon(LucideIcons.shopping_bag, color: Colors.red, size: 30),
-              icon: Icon(LucideIcons.shopping_bag, color: Colors.black, size: 30,),
+              icon: Icon(LucideIcons.shopping_bag, color: Colors.black, size: 30),
               label: 'CART',
             ),
             BottomNavigationBarItem(
-              activeIcon: Icon(LucideIcons.settings, color: Colors.red, size: 30, ),
-              icon: Icon(LucideIcons.settings, color: Colors.black, size: 30,),
+              activeIcon: Icon(LucideIcons.settings, color: Colors.red, size: 30),
+              icon: Icon(LucideIcons.settings, color: Colors.black, size: 30),
               label: 'Settings',
             ),
           ],
         ),
-      )
+      ),
     );
   }
 }

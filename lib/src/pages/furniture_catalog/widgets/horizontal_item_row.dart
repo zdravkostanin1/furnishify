@@ -35,8 +35,7 @@ class HorizontalItemRow extends StatelessWidget {
               final item = items[index];
               return GestureDetector(
                 onTap: () {
-                  Navigator.push(
-                    context,
+                  Navigator.of(context).push(
                     MaterialPageRoute(
                       builder: (context) => FurnitureDetailPage(furnitureItem: item),
                     ),
