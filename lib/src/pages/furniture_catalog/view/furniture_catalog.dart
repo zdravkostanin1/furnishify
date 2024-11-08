@@ -1,9 +1,30 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:furnishify/src/blocs/furniture_bloc.dart';
+import 'package:furnishify/src/models/furniture_item.dart';
 import 'package:furnishify/src/pages/category_page/view/category.dart';
 import 'package:furnishify/src/utils/constants.dart';
 
-class FurnitureCatalog extends StatelessWidget {
+class FurnitureCatalog extends StatefulWidget {
   const FurnitureCatalog({super.key});
+
+  @override
+  State<FurnitureCatalog> createState() => _FurnitureCatalogState();
+}
+
+class _FurnitureCatalogState extends State<FurnitureCatalog> {
+  List<FurnitureItem> furnitureItems = [];
+
+  // void _loadFurnitureData() {
+  //   furnitureItems = context.read<FurnitureBloc>().add(FurnitureLoad());
+  // }
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    // _loadFurnitureData();
+  }
 
   @override
   Widget build(BuildContext context) {

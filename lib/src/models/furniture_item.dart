@@ -18,4 +18,19 @@ class FurnitureItem {
     required this.suggestions,
     required this.quantity,
   });
+
+  factory FurnitureItem.fromJson(Map<String, dynamic> json) {
+    return FurnitureItem(
+      name: json['name'] as String,
+      images: List<String>.from(json['images'] as List),
+      price: (json['price'] as num).toDouble(),
+      rating: (json['rating'] as num).toDouble(),
+      reviews: json['reviews'] as int,
+      description: json['description'] as String,
+      suggestions: (json['suggestions'] as List)
+          .map((item) => FurnitureItem.fromJson(item as Map<String, dynamic>))
+          .toList(),
+      quantity: json['quantity'] as int,
+    );
+  }
 }

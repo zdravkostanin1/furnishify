@@ -9,22 +9,22 @@ final List<Widget> appPages = [
 ];
 
 final List<FurnitureItem> cartItems = [
-  FurnitureItem(
-    name: 'Modern Sofa',
-    images: [
-      'https://i.pinimg.com/736x/3d/07/9e/3d079e78a775da8332ebd99fe41d3826.jpg',
-      'https://example.com/sofa2.jpg',
-      'https://example.com/sofa3.jpg',
-      'https://example.com/sofa4.jpg',
-      'https://example.com/sofa5.jpg',
-    ],
-    price: 399.99,
-    rating: 4.6,
-    reviews: 140,
-    description: 'Comfortable and stylish sofa for your living room.',
-    suggestions: [],
-    quantity: 1,
-  ),
+  // FurnitureItem(
+  //   name: 'Modern Sofa',
+  //   images: [
+  //     'https://i.pinimg.com/736x/3d/07/9e/3d079e78a775da8332ebd99fe41d3826.jpg',
+  //     'https://example.com/sofa2.jpg',
+  //     'https://example.com/sofa3.jpg',
+  //     'https://example.com/sofa4.jpg',
+  //     'https://example.com/sofa5.jpg',
+  //   ],
+  //   price: 399.99,
+  //   rating: 4.6,
+  //   reviews: 140,
+  //   description: 'Comfortable and stylish sofa for your living room.',
+  //   suggestions: [],
+  //   quantity: 1,
+  // ),
 ];
 
 final List<FurnitureItem> mostLoved = [
