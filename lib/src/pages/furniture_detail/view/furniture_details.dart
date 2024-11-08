@@ -111,8 +111,7 @@ class _FurnitureDetailPageState extends State<FurnitureDetailPage> {
                   Row(
                     children: [
                       const Icon(Icons.star, color: Colors.amber, size: 20),
-                      Text('${widget.furnitureItem.rating} (${widget.furnitureItem.reviews} Reviews)',
-                          style: const TextStyle(fontSize: 16)),
+                      Text('${widget.furnitureItem.rating} (${widget.furnitureItem.reviews} Reviews)', style: const TextStyle(fontSize: 16)),
                       const Spacer(),
                       Container(
                         padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 6.0),

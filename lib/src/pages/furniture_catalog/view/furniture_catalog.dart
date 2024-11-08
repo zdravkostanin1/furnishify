@@ -141,6 +141,13 @@ class _FurnitureCatalogState extends State<FurnitureCatalog> {
                                         ),
                                       ),
                                       const SizedBox(height: 4),
+                                      Row(
+                                        children: [
+                                          const Icon(Icons.star, color: Colors.amber, size: 20),
+                                          Text('${state.mostLovedFurnitureItems[index].rating} (${state.mostLovedFurnitureItems[index].reviews} Reviews)', style: const TextStyle(fontSize: 14)),
+                                        ],
+                                      ),
+                                      const SizedBox(height: 4),
                                       Text(
                                         "\$${item.price}",
                                         style: const TextStyle(
