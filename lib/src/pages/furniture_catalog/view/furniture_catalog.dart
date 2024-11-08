@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:furnishify/src/blocs/furniture_bloc.dart';
+import 'package:furnishify/src/models/furniture_item.dart';
 import 'package:furnishify/src/pages/category_page/view/category.dart';
+import 'package:furnishify/src/pages/furniture_detail/view/furniture_details.dart';
 import 'package:furnishify/src/utils/constants.dart';
 
 class FurnitureCatalog extends StatefulWidget {
@@ -15,6 +17,17 @@ class _FurnitureCatalogState extends State<FurnitureCatalog> {
 
   void _loadMostLovedFurniture() {
     context.read<FurnitureBloc>().add(FurnitureMostLovedLoad());
+  }
+
+  void _onMostLovedItemTap(FurnitureItem item) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => FurnitureDetailPage(
+          furnitureItem: item,
+        ),
+      ),
+    );
   }
 
   @override
@@ -114,52 +127,55 @@ class _FurnitureCatalogState extends State<FurnitureCatalog> {
                                 ),
                               ],
                             ),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                ClipRRect(
-                                  borderRadius: BorderRadius.circular(15),
-                                  child: Image.network(
-                                    item.images.first,
-                                    height: 150,
-                                    width: 180,
-                                    fit: BoxFit.cover,
+                            child: GestureDetector(
+                              onTap: () => _onMostLovedItemTap(item),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  ClipRRect(
+                                    borderRadius: BorderRadius.circular(15),
+                                    child: Image.network(
+                                      item.images.first,
+                                      height: 150,
+                                      width: 180,
+                                      fit: BoxFit.cover,
+                                    ),
                                   ),
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        item.name,
-                                        style: const TextStyle(
-                                          fontSize: 16,
-                                          fontWeight: FontWeight.bold,
-                                          color: Colors.black87,
+                                  Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          item.name,
+                                          style: const TextStyle(
+                                            fontSize: 16,
+                                            fontWeight: FontWeight.bold,
+                                            color: Colors.black87,
+                                          ),
                                         ),
-                                      ),
-                                      const SizedBox(height: 4),
-                                      Row(
-                                        children: [
-                                          const Icon(Icons.star, color: Colors.amber, size: 20),
-                                          Text('${state.mostLovedFurnitureItems[index].rating} (${state.mostLovedFurnitureItems[index].reviews} Reviews)', style: const TextStyle(fontSize: 14)),
-                                        ],
-                                      ),
-                                      const SizedBox(height: 4),
-                                      Text(
-                                        "\$${item.price}",
-                                        style: const TextStyle(
-                                          fontSize: 14,
-                                          fontWeight: FontWeight.w500,
-                                          color: Colors.black54,
+                                        const SizedBox(height: 4),
+                                        Row(
+                                          children: [
+                                            const Icon(Icons.star, color: Colors.amber, size: 20),
+                                            Text('${state.mostLovedFurnitureItems[index].rating} (${state.mostLovedFurnitureItems[index].reviews} Reviews)', style: const TextStyle(fontSize: 14)),
+                                          ],
                                         ),
-                                      ),
-                                    ],
+                                        const SizedBox(height: 4),
+                                        Text(
+                                          "\$${item.price}",
+                                          style: const TextStyle(
+                                            fontSize: 14,
+                                            fontWeight: FontWeight.w500,
+                                            color: Colors.black54,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
                                   ),
-                                ),
-                              ],
+                                ],
+                              ),
                             ),
                           ),
                         );
