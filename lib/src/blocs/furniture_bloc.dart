@@ -28,7 +28,6 @@ class FurnitureBloc extends Bloc<FurnitureEvent, FurnitureState> {
     final jsonString = await rootBundle.loadString('assets/data/most_loved_furniture_data.json');
     final jsonData = jsonDecode(jsonString) as Map<String, dynamic>;
 
-    // Flatten all items from each category into a single list
     final mostLoved = jsonData.values
         .expand((category) => (category as List)
         .map((item) => FurnitureItem.fromJson(item as Map<String, dynamic>)))

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:furnishify/src/blocs/furniture_bloc.dart';
-import 'package:furnishify/src/models/furniture_item.dart';
 import 'package:furnishify/src/pages/category_page/view/category.dart';
 import 'package:furnishify/src/utils/constants.dart';
 
@@ -13,6 +12,7 @@ class FurnitureCatalog extends StatefulWidget {
 }
 
 class _FurnitureCatalogState extends State<FurnitureCatalog> {
+
   void _loadMostLovedFurniture() {
     context.read<FurnitureBloc>().add(FurnitureMostLovedLoad());
   }
