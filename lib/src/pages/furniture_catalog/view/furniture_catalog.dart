@@ -13,17 +13,15 @@ class FurnitureCatalog extends StatefulWidget {
 }
 
 class _FurnitureCatalogState extends State<FurnitureCatalog> {
-  List<FurnitureItem> furnitureItems = [];
-
-  // void _loadFurnitureData() {
-  //   furnitureItems = context.read<FurnitureBloc>().add(FurnitureLoad());
-  // }
+  void _loadMostLovedFurniture() {
+    context.read<FurnitureBloc>().add(FurnitureMostLovedLoad());
+  }
 
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
-    // _loadFurnitureData();
+    _loadMostLovedFurniture();
   }
 
   @override
@@ -93,73 +91,79 @@ class _FurnitureCatalogState extends State<FurnitureCatalog> {
               const SizedBox(height: 20),
               SizedBox(
                 height: 250,
-                child: ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  itemCount: mostLoved.length,
-                  itemBuilder: (context, index) {
-                    final item = mostLoved[index];
-                    return Padding(
-                      padding: const EdgeInsets.only(right: 16.0),
-                      child: Container(
-                        width: 180,
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(15),
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.grey.withOpacity(0.0),
-                              spreadRadius: 2,
-                              blurRadius: 5,
-                              offset: const Offset(0, 3),
-                            ),
-                          ],
-                        ),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            ClipRRect(
+                child: BlocBuilder<FurnitureBloc, FurnitureState>(
+                  builder: (context, state) {
+                    return ListView.builder(
+                      scrollDirection: Axis.horizontal,
+                      itemCount: state.mostLovedFurnitureItems.length,
+                      itemBuilder: (context, index) {
+                        final item = state.mostLovedFurnitureItems[index];
+                        return Padding(
+                          padding: const EdgeInsets.only(right: 16.0),
+                          child: Container(
+                            width: 180,
+                            decoration: BoxDecoration(
+                              color: Colors.white,
                               borderRadius: BorderRadius.circular(15),
-                              child: Image.network(
-                                item.images.first,
-                                height: 150,
-                                width: 180,
-                                fit: BoxFit.cover,
-                              ),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.grey.withOpacity(0.0),
+                                  spreadRadius: 2,
+                                  blurRadius: 5,
+                                  offset: const Offset(0, 3),
+                                ),
+                              ],
                             ),
-                            Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    item.name,
-                                    style: const TextStyle(
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.black87,
-                                    ),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                ClipRRect(
+                                  borderRadius: BorderRadius.circular(15),
+                                  child: Image.network(
+                                    item.images.first,
+                                    height: 150,
+                                    width: 180,
+                                    fit: BoxFit.cover,
                                   ),
-                                  const SizedBox(height: 4),
-                                  Text(
-                                    "\$${item.price}",
-                                    style: const TextStyle(
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.w500,
-                                      color: Colors.black54,
-                                    ),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        item.name,
+                                        style: const TextStyle(
+                                          fontSize: 16,
+                                          fontWeight: FontWeight.bold,
+                                          color: Colors.black87,
+                                        ),
+                                      ),
+                                      const SizedBox(height: 4),
+                                      Text(
+                                        "\$${item.price}",
+                                        style: const TextStyle(
+                                          fontSize: 14,
+                                          fontWeight: FontWeight.w500,
+                                          color: Colors.black54,
+                                        ),
+                                      ),
+                                    ],
                                   ),
-                                ],
-                              ),
+                                ),
+                              ],
                             ),
-                          ],
-                        ),
-                      ),
+                          ),
+                        );
+                      },
                     );
                   },
                 ),
               ),
               const SizedBox(height: 20),
-              const Text('BY CATEGORY', style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
+              const Text('BY CATEGORY',
+                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
               const SizedBox(height: 20),
               // ...furnitureData.entries.map((entry) => HorizontalItemRow(category: entry.key, items: entry.value)),
 // Inside the Wrap widget in FurnitureCatalog
@@ -167,7 +171,17 @@ class _FurnitureCatalogState extends State<FurnitureCatalog> {
                 spacing: 16.0,
                 runSpacing: 16.0,
                 children: [
-                  for (var category in ['Sofas 🛋️', 'Chairs 🪑', 'Tables 🍽️', 'Beds 🛏️', 'Cabinets 🗄️', 'Decor 🖼️', 'Lighting 💡', 'Outdoor 🌿', 'Office 🖥️'])
+                  for (var category in [
+                    'Sofas 🛋️',
+                    'Chairs 🪑',
+                    'Tables 🍽️',
+                    'Beds 🛏️',
+                    'Cabinets 🗄️',
+                    'Decor 🖼️',
+                    'Lighting 💡',
+                    'Outdoor 🌿',
+                    'Office 🖥️'
+                  ])
                     GestureDetector(
                       onTap: () {
                         Navigator.push(
@@ -215,4 +229,3 @@ class _FurnitureCatalogState extends State<FurnitureCatalog> {
     );
   }
 }
-

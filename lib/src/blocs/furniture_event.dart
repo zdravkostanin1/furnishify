@@ -1,7 +1,13 @@
 part of 'furniture_bloc.dart';
 
 @immutable
-sealed class FurnitureEvent {}
+abstract class FurnitureEvent extends Equatable {
+  const FurnitureEvent();
 
-@immutable
+  @override
+  List<Object> get props => [];
+}
+
 class FurnitureLoad extends FurnitureEvent {}
+
+class FurnitureMostLovedLoad extends FurnitureEvent {}

@@ -1,14 +1,33 @@
 part of 'furniture_bloc.dart';
 
 @immutable
-sealed class FurnitureState {}
+abstract class FurnitureState extends Equatable {
+  final List<FurnitureItem> furnitureItems;
+  final List<FurnitureItem> mostLovedFurnitureItems;
 
-final class FurnitureInitial extends FurnitureState {}
+  const FurnitureState({
+    this.furnitureItems = const [],
+    this.mostLovedFurnitureItems = const [],
+  });
 
-final class FurnitureLoading extends FurnitureState {}
+  @override
+  List<Object> get props => [furnitureItems, mostLovedFurnitureItems];
+}
 
-final class FurnitureLoaded extends FurnitureState {
-  final List<FurnitureItem> items;
+class FurnitureInitial extends FurnitureState {}
 
-  FurnitureLoaded({required this.items});
+class FurnitureLoading extends FurnitureState {}
+
+class FurnitureLoaded extends FurnitureState {
+  const FurnitureLoaded({required super.furnitureItems, required super.mostLovedFurnitureItems});
+
+  @override
+  List<Object> get props => [furnitureItems, mostLovedFurnitureItems];
+}
+
+class FurnitureMostLovedLoaded extends FurnitureState {
+  const FurnitureMostLovedLoaded({required super.furnitureItems, required super.mostLovedFurnitureItems});
+
+  @override
+  List<Object> get props => [furnitureItems, mostLovedFurnitureItems];
 }
